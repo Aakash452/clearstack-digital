@@ -1,0 +1,250 @@
+/* ── Design tokens ── */
+:root {
+  --navy: #042C53;
+  --navy-deep: #021B38;
+  --blue: #378ADD;
+  --blue-accent: #85B7EB;
+  --blue-light: #B5D4F4;
+  --surface: #E6F1FB;
+  --white: #FFFFFF;
+  --text: #2C2C2A;
+  --muted: #888780;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+
+  --radius-pill: 50px;
+  --radius-card: 16px;
+  --radius-sm: 10px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-power3: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-blur: blur(10px);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: auto; font-size: 16px; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text);
+  background: var(--navy);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: none; border: none; background: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ── Custom cursor ── */
+.cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  width: 40px; height: 40px;
+  border: 1.5px solid var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 250ms var(--ease-out-expo),
+              height 250ms var(--ease-out-expo),
+              border-color 250ms ease,
+              background 250ms ease;
+  will-change: transform;
+}
+.cursor-ring.cursor-hover {
+  width: 60px; height: 60px;
+  background: rgba(55,138,221,0.1);
+  border-color: var(--blue-accent);
+}
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: var(--blue);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+/* ── Typography helpers ── */
+.display-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 0.5px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.section-label.on-light {
+  color: var(--blue);
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-pad { padding: 6rem 0; }
+
+/* ── Glass card ── */
+.glass-card {
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-card);
+}
+
+/* ── Badge pill ── */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255,255,255,0.08);
+  border: 0.5px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.85);
+  width: fit-content;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.75rem;
+  background: var(--white);
+  color: var(--navy);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 200ms ease, transform 200ms ease;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: var(--blue-accent); transform: scale(1.02); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--white);
+  border: 0.5px solid rgba(255,255,255,0.5);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: background 200ms ease, border-color 200ms ease;
+  white-space: nowrap;
+}
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.7);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--navy-deep); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+/* ── Selection ── */
+::selection { background: var(--blue); color: var(--white); }
+
+/* ── Reduced motion override ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cursor-ring, .cursor-dot { display: none; }
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+}
+
+/* ── Mobile cursor hide ── */
+@media (pointer: coarse) {
+  .cursor-ring, .cursor-dot { display: none; }
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+}
+
+/* ── Global responsive layout ── */
+@media (max-width: 900px) {
+  /* Hero */
+  .hero-inner,
+  [style*="gridTemplateColumns: '55fr 45fr'"],
+  [style*="gridTemplateColumns: '1fr 1fr'"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Nav links hidden on mobile (handled via JS) */
+  nav > div { display: none !important; }
+
+  /* Stats */
+  [style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Services grid fallback */
+  [style*="gridTemplateColumns: 'repeat(4,1fr)'"],
+  [style*="gridTemplateColumns: 'repeat(2,1fr)'"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Pricing */
+  [style*="gridTemplateColumns: 'repeat(3, 1fr)'"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Containers */
+  .container { padding: 0 1.25rem; }
+  .section-pad { padding: 4rem 0; }
+}
+
+@media (max-width: 640px) {
+  .section-pad { padding: 3rem 0; }
+}
+
+/* ── Smooth image hover ── */
+.proj-img > div { transition: transform 400ms var(--ease-out-expo) !important; }
+.proj-img > div:hover { transform: scale(1.02) !important; }
+
