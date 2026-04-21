@@ -66,7 +66,7 @@ export default function StatsBar() {
 
   return (
     <section ref={sectionRef} style={styles.section}>
-      <div style={styles.grid}>
+      <div style={styles.grid} className="stats-grid">
         {stats.map((stat, i) => (
           <div
             key={i}

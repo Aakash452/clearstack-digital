@@ -205,43 +205,35 @@ ul { list-style: none; }
   a, button { cursor: pointer; }
 }
 
-/* ── Global responsive layout ── */
+/* ── Responsive layout ── */
 @media (max-width: 900px) {
-  /* Hero */
-  .hero-inner,
-  [style*="gridTemplateColumns: '55fr 45fr'"],
-  [style*="gridTemplateColumns: '1fr 1fr'"] {
-    grid-template-columns: 1fr !important;
-  }
+  .hero-inner    { grid-template-columns: 1fr !important; }
+  .hero-right    { display: none !important; }
+  .aidemo-grid   { grid-template-columns: 1fr !important; }
+  .about-grid    { grid-template-columns: 1fr !important; }
+  .contact-grid  { grid-template-columns: 1fr !important; }
+  .proj-row      { flex-direction: column !important; }
+  .proj-img,
+  .proj-detail   { max-width: 100% !important; flex: 1 1 100% !important; }
+  .services-feat-inner { grid-template-columns: 1fr !important; }
+  .services-tier2-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 @media (max-width: 768px) {
-  /* Nav links hidden on mobile (handled via JS) */
-  nav > div { display: none !important; }
-
-  /* Stats */
-  [style*="grid-template-columns: repeat(4, 1fr)"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  /* Services grid fallback */
-  [style*="gridTemplateColumns: 'repeat(4,1fr)'"],
-  [style*="gridTemplateColumns: 'repeat(2,1fr)'"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Pricing */
-  [style*="gridTemplateColumns: 'repeat(3, 1fr)'"] {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Containers */
-  .container { padding: 0 1.25rem; }
-  .section-pad { padding: 4rem 0; }
+  .stats-grid    { grid-template-columns: repeat(2, 1fr) !important; }
+  .pricing-grid  { grid-template-columns: 1fr !important; }
+  .container     { padding: 0 1.25rem; }
+  .section-pad   { padding: 4rem 0; }
 }
 
 @media (max-width: 640px) {
-  .section-pad { padding: 3rem 0; }
+  .services-tier1-grid,
+  .services-tier2-grid,
+  .services-tier3-grid { grid-template-columns: 1fr !important; }
+  .ai-features-grid    { grid-template-columns: 1fr !important; }
+  .contact-name-row    { grid-template-columns: 1fr !important; }
+  .footer-grid         { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .section-pad         { padding: 3rem 0; }
 }
 
 /* ── Smooth image hover ── */

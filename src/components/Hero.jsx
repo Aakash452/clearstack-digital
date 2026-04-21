@@ -219,7 +219,7 @@ export default function Hero() {
       {/* Three.js canvas */}
       <canvas ref={canvasRef} style={styles.canvas} />
 
-      <div style={styles.inner}>
+      <div style={styles.inner} className="hero-inner">
         {/* Left */}
         <div style={styles.left}>
           <div ref={badgeRef} style={{ opacity: 0 }}>
@@ -263,7 +263,7 @@ export default function Hero() {
         </div>
 
         {/* Right — visual mockup */}
-        <div ref={imageRef} style={{ ...styles.right, opacity: 0 }}>
+        <div ref={imageRef} className="hero-right" style={{ ...styles.right, opacity: 0 }}>
           <HeroVisual />
         </div>
       </div>

@@ -94,6 +94,7 @@ export default function Projects() {
               <div
                 key={proj.name}
                 ref={(el) => (rowRefs.current[i] = el)}
+                className="proj-row"
                 style={{ ...styles.row, flexDirection: isEven ? 'row' : 'row-reverse' }}
               >
                 {/* Image side */}

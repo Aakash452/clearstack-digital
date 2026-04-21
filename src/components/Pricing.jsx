@@ -92,7 +92,7 @@ export default function Pricing() {
           Straightforward pricing with everything spelled out. No hidden fees, no long-term lock-ins.
         </p>
 
-        <div style={styles.grid}>
+        <div style={styles.grid} className="pricing-grid">
           {bundles.map((b, i) => (
             <div
               key={b.name}

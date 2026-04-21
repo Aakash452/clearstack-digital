@@ -55,7 +55,7 @@ export default function About() {
   return (
     <section ref={sectionRef} style={styles.section}>
       <div className="container section-pad">
-        <div style={styles.grid}>
+        <div style={styles.grid} className="about-grid">
           {/* Left */}
           <div style={styles.left}>
             <span ref={labelRef} className="section-label on-light" style={{ opacity: 0 }}>Why ClearStack</span>

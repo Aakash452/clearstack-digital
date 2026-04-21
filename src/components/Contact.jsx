@@ -77,7 +77,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={sectionRef} style={styles.section}>
       <div className="container section-pad">
-        <div style={styles.grid}>
+        <div style={styles.grid} className="contact-grid">
           {/* Left */}
           <div style={styles.left}>
             <span ref={labelRef} className="section-label" style={{ opacity: 0 }}>Get in Touch</span>
@@ -106,7 +106,7 @@ export default function Contact() {
           <div style={styles.formWrap}>
             {!submitted ? (
               <form ref={formRef} onSubmit={handleSubmit} style={{ ...styles.formCard, opacity: 0 }}>
-                <div style={styles.nameRow}>
+                <div style={styles.nameRow} className="contact-name-row">
                   <Field label="First Name" name="firstName" value={fields.firstName} onChange={handleChange} placeholder="Jane" required />
                   <Field label="Last Name" name="lastName" value={fields.lastName} onChange={handleChange} placeholder="Smith" required />
                 </div>

@@ -175,7 +175,7 @@ export default function Services() {
             {tier === 4 ? (
               byTier(4).map((svc) => <FeaturedCard key={svc.name} svc={svc} />)
             ) : (
-              <div style={{ ...styles.grid, gridTemplateColumns: tier === 2 ? 'repeat(4,1fr)' : 'repeat(2,1fr)' }}>
+              <div className={`services-tier${tier}-grid`} style={{ ...styles.grid, gridTemplateColumns: tier === 2 ? 'repeat(4,1fr)' : 'repeat(2,1fr)' }}>
                 {byTier(tier).map((svc) => <ServiceCard key={svc.name} svc={svc} />)}
               </div>
             )}
@@ -222,7 +222,7 @@ function ServiceCard({ svc }) {
 function FeaturedCard({ svc }) {
   return (
     <div className="service-card glass-card" style={featStyles.card} data-hover>
-      <div style={featStyles.inner}>
+      <div style={featStyles.inner} className="services-feat-inner">
         <div style={featStyles.left}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.8rem' }}>
             <div style={cardStyles.iconBox}>{svc.icon}</div>

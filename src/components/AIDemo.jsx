@@ -106,7 +106,7 @@ export default function AIDemo() {
     <section ref={sectionRef} style={styles.section}>
       <div style={styles.divider} />
       <div className="container section-pad">
-        <div style={styles.grid}>
+        <div style={styles.grid} className="aidemo-grid">
           {/* Left */}
           <div style={styles.left}>
             <span ref={labelRef} className="section-label" style={{ opacity: 0 }}>AI-Powered Services</span>
@@ -118,7 +118,7 @@ export default function AIDemo() {
               answering questions, and sending you reports. No extra staff required.
             </p>
 
-            <div style={styles.featuresGrid}>
+            <div style={styles.featuresGrid} className="ai-features-grid">
               {features.map((f) => (
                 <div key={f.name} className="ai-feature-card glass-card" style={featureCardStyles.card} data-hover>
                   <div style={featureCardStyles.iconWrap}>

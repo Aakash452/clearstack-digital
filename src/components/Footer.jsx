@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <footer ref={footerRef} style={styles.footer}>
       <div className="container">
-        <div style={styles.grid}>
+        <div style={styles.grid} className="footer-grid">
           {/* Left */}
           <div style={styles.col}>
             <a
